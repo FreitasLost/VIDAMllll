@@ -4,12 +4,14 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background-color: #f5f5f5; /* Fundo claro para contraste */
 }
 
 header {
-    background-color: #333;
+    background-color: #b22222; /* Cor de fundo vermelha */
     color: white;
     padding: 10px;
+    text-align: center; /* Centraliza o texto no header */
 }
 
 header h1, header h2 {
@@ -22,6 +24,7 @@ nav ul {
     margin: 0;
     display: flex;
     justify-content: center;
+    background-color: #d32f2f; /* Cor vermelha mais escura para o menu */
 }
 
 nav ul li {
@@ -32,10 +35,11 @@ nav ul li a {
     color: white;
     text-decoration: none;
     padding: 5px 10px;
+    display: inline-block;
 }
 
 nav ul li a:hover {
-    background-color: #555;
+    background-color: #b71c1c; /* Cor vermelha ainda mais escura para hover */
     border-radius: 5px;
 }
 
@@ -52,15 +56,23 @@ main {
 .item {
     flex: 1 1 calc(33.333% - 10px);
     box-sizing: border-box;
+    border: 2px solid #b22222; /* Borda vermelha para os itens */
+    border-radius: 8px; /* Borda arredondada para um visual mais moderno */
+    background-color: white; /* Fundo branco para contraste com a borda vermelha */
 }
 
 .item img {
     width: 100%;
     height: auto;
+    border-bottom: 2px solid #b22222; /* Borda inferior vermelha para as imagens */
 }
 
 .informacoes {
     margin-top: 20px;
+    border: 2px solid #b22222; /* Borda vermelha para a seção de informações */
+    border-radius: 8px; /* Borda arredondada */
+    padding: 10px;
+    background-color: white; /* Fundo branco para a seção de informações */
 }
 
 .informacoes img {
@@ -69,12 +81,13 @@ main {
 }
 
 footer {
-    background-color: #333;
+    background-color: #b22222; /* Cor de fundo vermelha para o footer */
     color: white;
     text-align: center;
     padding: 10px;
 }
 
+/* Lightbox */
 .lightbox {
     display: none;
     position: fixed;
