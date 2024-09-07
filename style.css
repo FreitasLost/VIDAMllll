@@ -1,21 +1,25 @@
 /* Estilos Gerais */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #f5f5f5; /* Fundo claro para contraste */
+    background-color: #f0f0f0; /* Fundo claro para contraste suave */
+    color: #333; /* Cor de texto mais suave */
 }
 
 header {
-    background-color: #b22222; /* Cor de fundo vermelha */
+    background-color: #8B0000; /* Vermelho escuro elegante */
     color: white;
-    padding: 10px;
+    padding: 20px;
     text-align: center; /* Centraliza o texto no header */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave no header */
 }
 
 header h1, header h2 {
     margin: 0;
+    font-weight: 300; /* Tipografia leve para modernidade */
+    letter-spacing: 1px;
 }
 
 nav ul {
@@ -24,67 +28,85 @@ nav ul {
     margin: 0;
     display: flex;
     justify-content: center;
-    background-color: #d32f2f; /* Cor vermelha mais escura para o menu */
+    background-color: #A52A2A; /* Cor marrom mais elegante para o menu */
 }
 
 nav ul li {
-    margin: 0 10px;
+    margin: 0 15px;
 }
 
 nav ul li a {
     color: white;
     text-decoration: none;
-    padding: 5px 10px;
+    padding: 10px 15px;
     display: inline-block;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 nav ul li a:hover {
-    background-color: #b71c1c; /* Cor vermelha ainda mais escura para hover */
-    border-radius: 5px;
+    background-color: #800000; /* Vermelho mais escuro para hover */
+    transform: scale(1.1); /* Efeito de escala ao passar o mouse */
 }
 
 main {
-    padding: 20px;
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto; /* Centraliza o conteúdo */
 }
 
 .galeria {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 20px;
 }
 
 .item {
-    flex: 1 1 calc(33.333% - 10px);
+    flex: 1 1 calc(33.333% - 20px);
     box-sizing: border-box;
-    border: 2px solid #b22222; /* Borda vermelha para os itens */
-    border-radius: 8px; /* Borda arredondada para um visual mais moderno */
-    background-color: white; /* Fundo branco para contraste com a borda vermelha */
+    border: none;
+    border-radius: 12px; /* Borda arredondada suave */
+    background-color: white; /* Fundo branco */
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .item img {
     width: 100%;
     height: auto;
-    border-bottom: 2px solid #b22222; /* Borda inferior vermelha para as imagens */
+    display: block;
+}
+
+.item:hover {
+    transform: translateY(-5px); /* Efeito de elevação ao passar o mouse */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
 .informacoes {
-    margin-top: 20px;
-    border: 2px solid #b22222; /* Borda vermelha para a seção de informações */
-    border-radius: 8px; /* Borda arredondada */
-    padding: 10px;
-    background-color: white; /* Fundo branco para a seção de informações */
+    margin-top: 40px;
+    border: 2px solid #8B0000; /* Borda vermelha elegante */
+    border-radius: 12px; /* Borda arredondada */
+    padding: 20px;
+    background-color: white; /* Fundo branco */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .informacoes img {
     max-width: 100%;
     height: auto;
+    border-radius: 8px; /* Bordas levemente arredondadas para as imagens */
 }
 
 footer {
-    background-color: #b22222; /* Cor de fundo vermelha para o footer */
+    background-color: #8B0000; /* Vermelho escuro para elegância */
     color: white;
     text-align: center;
-    padding: 10px;
+    padding: 20px;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave no footer */
+    font-size: 14px;
 }
 
 /* Lightbox */
@@ -95,29 +117,40 @@ footer {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.85); /* Fundo escuro para o lightbox */
     justify-content: center;
     align-items: center;
+    z-index: 1000;
 }
 
 .lightbox img, .lightbox video {
     max-width: 90%;
     max-height: 90%;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
 }
 
 .lightbox-close {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 2em;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
     color: white;
     text-decoration: none;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.lightbox-close:hover {
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 /* Estilos Responsivos */
 @media (max-width: 768px) {
     .item {
-        flex: 1 1 calc(50% - 10px);
+        flex: 1 1 calc(50% - 20px);
     }
 
     nav ul {
@@ -125,7 +158,7 @@ footer {
     }
 
     nav ul li {
-        margin: 5px 0;
+        margin: 10px 0;
     }
 }
 
@@ -146,4 +179,65 @@ footer {
     nav ul li {
         margin: 5px 0;
     }
+}
+
+/* Estilo da Whitelist */
+.whitelist {
+    margin-top: 40px;
+    border: 2px solid #8B0000; /* Borda vermelha mais elegante */
+    border-radius: 12px;
+    padding: 30px;
+    background-color: white; /* Fundo branco */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto; /* Centraliza a whitelist */
+}
+
+.whitelist h2 {
+    text-align: center;
+    color: #8B0000; /* Título em vermelho elegante */
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.whitelist .form-group {
+    margin-bottom: 20px;
+}
+
+.whitelist label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+.whitelist input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #8B0000; /* Borda vermelha */
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.whitelist input[type="text"]:focus {
+    border-color: #A52A2A; /* Mudança de cor ao focar */
+}
+
+.whitelist button {
+    background-color: #8B0000;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.whitelist button:hover {
+    background-color: #A52A2A; /* Mudança de cor no hover */
+    transform: scale(1.05); /* Efeito de leve crescimento no hover */
 }

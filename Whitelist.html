@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vida Moderna in 2024</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/canvas-confetti/1.5.0/confetti.browser.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Vida Moderna in 2024</h1>
+        <h2>Whitelist</h2>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="Whitelist.html">Whitelist</a></li>
+                <li><a href="https://forms.gle/bzW4zP8QVa2PUNWW8" target="_blank">Sugestão</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Seção Galeria (já existente) -->
+        <section class="galeria" id="galeria">
+            <!-- Conteúdo da galeria -->
+        </section>
+
+        <!-- Nova seção Fazer Whitelist -->
+        <section class="whitelist" id="whitelist">
+            <h2>Fazer Whitelist</h2>
+            <form id="whitelistForm">
+                <div class="form-group">
+                    <label for="nome">Nick:</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="nick">Discord:</label>
+                    <input type="text" id="nick" name="nick" required>
+                </div>
+                <button type="button" onclick="enviarWhatsApp()">Enviar</button>
+                
+                <img src="f9e118fc-ac0d-4c9d-bac5-73dcabda6d1a.jfif" alt="Whitelist" style="width:100%; height:auto; border-radius:8px; margin-bottom:20px;">
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Vida Moderna. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        function enviarWhatsApp() {
+            // Obtém os valores dos campos do formulário
+            var nome = document.getElementById("nome").value;
+            var nick = document.getElementById("nick").value;
+
+            // Variáveis de controle
+            var camposFaltando = [];
+
+            // Verifica quais campos estão vazios
+            if (!nome) {
+                camposFaltando.push("Nome");
+            }
+
+            if (!nick) {
+                camposFaltando.push("Nick");
+            }
+
+            // Se algum campo estiver faltando, mostra alerta
+            if (camposFaltando.length > 0) {
+                alert("Por favor, preencha os seguintes campos: " + camposFaltando.join(", "));
+                return; // Interrompe a execução se algum campo estiver vazio
+            }
+
+            // Cria a mensagem para ser enviada no WhatsApp
+            var mensagem = `Olá, meu Nick in game é ${nome} e meu Discord é ${nick}. Gostaria de fazer a whitelist.`;
+            
+            // Codifica a mensagem para URL
+            var mensagemCodificada = encodeURIComponent(mensagem);
+
+            // Substitua o número abaixo pelo número do WhatsApp para onde a mensagem será enviada
+            var numeroWhatsApp = "5517992095122"; // Exemplo: número fictício com código do Brasil +55
+
+            // URL para redirecionar para o WhatsApp
+            var urlWhatsApp = `https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${mensagemCodificada}`;
+
+            // Redireciona o usuário para o WhatsApp
+            window.location.href = urlWhatsApp;
+        }
+    </script>
+</body>
+</html>
