@@ -1,11 +1,229 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
+<html><head><base href="">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vida Moderna in 2024</title>
-    <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/canvas-confetti/1.5.0/confetti.browser.min.js"></script>
+    <style>
+        /* Estilos Gerais */
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            background-color: #f8f8f8;
+            color: #333; /* Cor de texto mais suave */
+        }
+
+        header {
+            background: linear-gradient(135deg, #8B0000, #A52A2A);
+            color: white;
+            padding: 30px 20px;
+            text-align: center; /* Centraliza o texto no header */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave no header */
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        header h2 {
+            font-size: 1.5rem;
+            opacity: 0.9;
+        }
+
+        nav {
+            background-color: rgba(0,0,0,0.1);
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            display: inline-block;
+            font-size: 16px;
+            font-weight: 500;
+            border-radius: 25px;
+            background-color: rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        main {
+            padding: 40px;
+            max-width: 1200px;
+            margin: 0 auto; /* Centraliza o conteúdo */
+        }
+
+        .galeria {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .item {
+            flex: 1 1 calc(33.333% - 20px);
+            box-sizing: border-box;
+            border: none;
+            border-radius: 15px; /* Borda arredondada suave */
+            background: white; /* Fundo branco */
+            overflow: hidden;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            padding-bottom: 15px;
+        }
+
+        .item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 15px 15px 0 0;
+            display: block;
+        }
+
+        .item p {
+            padding: 15px;
+            margin: 0;
+            font-size: 0.95rem;
+            color: #444;
+        }
+
+        .item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+        }
+
+        .informacoes {
+            margin-top: 40px;
+            background: white; /* Fundo branco */
+            padding: 40px;
+            border-radius: 20px;
+            border: none;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+        }
+
+        .informacoes h2 {
+            color: #8B0000; /* Título em vermelho elegante */
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .info-conteudo {
+            display: grid;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .info-conteudo img {
+            border-radius: 15px;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #8B0000, #A52A2A);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave no footer */
+            font-size: 14px;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85); /* Fundo escuro para o lightbox */
+            backdrop-filter: blur(8px);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .lightbox img,
+        .lightbox video {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 28px;
+            color: white;
+            text-decoration: none;
+            background-color: rgba(255,255,255,0.2);
+            backdrop-filter: blur(5px);
+            padding: 15px;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+
+        .lightbox-close:hover {
+            background-color: rgba(255,255,255,0.3);
+        }
+
+        /* Estilos Responsivos */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .galeria {
+                gap: 15px;
+            }
+
+            .item {
+                flex: 1 1 calc(50% - 15px);
+            }
+
+            .informacoes {
+                padding: 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 20px 15px;
+            }
+
+            .item {
+                flex: 1 1 100%;
+            }
+
+            nav ul li a {
+                padding: 10px 20px;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
